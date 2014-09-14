@@ -1,7 +1,7 @@
 trusty-graphite
 ===============
 
-A vagrant definition and setup for Graphite on Ubuntu Trusty-x64
+A vagrant definition and setup for [Graphite](https://graphite.readthedocs.org/en/latest/index.html) on [Ubuntu Trusty](http://releases.ubuntu.com/14.04/) (x64).
 
 To startup:
 
