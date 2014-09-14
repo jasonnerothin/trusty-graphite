@@ -3,7 +3,7 @@ trusty-graphite
 
 A vagrant definition and setup for Graphite on Ubuntu Trusty-x64
 
-= To startup:
+To startup:
 
 1. Install [Vagrant](https://www.vagrantup.com/downloads.html) and [VirtualBox](https://www.virtualbox.org)
 1. `git clone https://github.com/jasonnerothin/trusty-graphite.git`
