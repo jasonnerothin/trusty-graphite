@@ -21,7 +21,16 @@ sudo unlink 000-default.conf && sudo ln -s ../sites-available/graphite-vhost.con
 sudo mkdir /var/run/apache2/wsgi
 sudo sed -i 's/WSGISocketPrefix run\/wsgi/WSGISocketPrefix \/var\/run\/apache2\/wsgi/' 000-graphite.conf
 
-echo "Edit 000-graphite.conf and follow directions after remaining XXXs"
+# http://greenlegos.wordpress.com/2012/09/09/graphite-installation/
+# suggests that media should be something like:
+# Alias /media/ "/usr/local/lib/python2.7/dist-packages/django/contrib/admin/media/"
+sudo sed -i 's/Alias \/media\/.*$/Alias \/media\/ "\/usr\/local\/lib\/python2.7\/dist-packages\/Django-1.7-py2.7.egg\/django\/contrib\/admin\/static\/admin\/"/' 000-graphite.conf
+
+# This is hacky, but seems to work...
+# Instead, we should run the service under a non-root user and then
+cd /opt/graphite/storage/log
+sudo chmod a+w webapp/
+sudo chmod -R a+w /opt/graphite/storage
 
 # create convenience link in ~
 cd
