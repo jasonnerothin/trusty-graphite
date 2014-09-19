@@ -21,3 +21,5 @@ sudo pip install psycopg2
 cp ${PG_SCRIPT} vars.sh ${TMPDIR}
 chmod a+x /tmp/vars.sh /tmp/${PG_SCRIPT}
 sudo su postgres -c "/bin/bash /tmp/${PG_SCRIPT}"
+
+sudo service postgresql restart

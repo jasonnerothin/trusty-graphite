@@ -21,5 +21,3 @@ echo "${PWD_CMD}"
 echo "${PWD_CMD}" | psql
 
 echo "local all graphiteuser    md5" >> ${PG_CONF}
-
-sudo service postgresql restart
