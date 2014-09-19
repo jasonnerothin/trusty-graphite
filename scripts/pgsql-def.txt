@@ -1,0 +1,10 @@
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'GRAPHITE_DB', # will be substituted with value from vars.sh
+        'USER': 'GRAPHITE_USER', # will be substituted with value from vars.sh
+        'PASSWORD': 'GRAPHITE_PWD', # will be substituted with value from vars.sh
+        'HOST': '127.0.0.1',
+        'PORT': ''
+    }
+}

@@ -14,11 +14,10 @@ To startup:
 1. `vagrant ssh`
 1. `tar xvzf scripts.tgz`
 1. `cd scripts`
-1. `./installGraphite.sh`
-1. `./configureGrahite.sh`
+1. `vi vars.sh` # edit, as needed
+1. `./01_installGraphite.sh`
+1. `./02_configureGraphite.sh` # set admin credentials
 1. `./refresh.sh`
 1. Go to [http://192.168.33.10](http://192.168.33.10) in your browser
 1. `cd`
 1. `cd webapp_logs`
-1. `vi error.log`
-

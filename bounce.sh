@@ -2,11 +2,14 @@
 
 IP_ADDR="192.168.33.10"
 
+# expect "Are you sure you want to continue connecting (yes/no)? "
+# expect "vagrant@192.168.33.10's password: "
+
 vagrant halt
 
 echo "You need to delete the ssh key from known hosts for the VM that you just destroyed."
-echo "OK (Y/N) > "
-read -n 1 OK
+read -p "OK (Y/N) > " -n 1 OK
+echo
 
 if [ "$OK" == "Y" ] 
 then
@@ -17,10 +20,11 @@ else
 	exit 666
 fi
 
-echo "starting up new VM..."
+echo "Starting up new VM..."
 vagrant up
 
 rm *.tgz 
 tar cvzf scripts.tgz scripts/
 scp scripts.tgz vagrant@${IP_ADDR}:~
 
+vagrant ssh
