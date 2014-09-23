@@ -3,16 +3,16 @@
 source ./vars.sh
 
 # create conf files from examples
-CARBON_CONF_FILE='carbon.conf'
-cd /opt/graphite/conf/
+
+cd ${GRAPHITE_CONF_DIR}
 sudo cp graphite.wsgi.example graphite.wsgi
 sudo cp carbon.conf.example ${CARBON_CONF_FILE}
 sudo sed -i 's/LINE_RECEIVER_INTERFACE = 0\.0\.0\.0/LINE_RECEIVER_INTERFACE = 192\.168\.33\.10/' ${CARBON_CONF_FILE}
 
 sudo cp storage-schemas.conf.example storage-schemas.conf
-#sudo cp storage-aggregation.conf.example storage-aggregation.conf
+sudo cp storage-aggregation.conf.example storage-aggregation.conf
 
-cd ${GRAPHITE_SETTINGS_HOME}
+cd ${GRAPHITE_PYTHON_CONF_DIR}
 sudo cp local_settings.py.example ${LOCAL_SETTINGS_FILE}
 
 . ${SCRIPT_DIR}edit_local_settings.sh
