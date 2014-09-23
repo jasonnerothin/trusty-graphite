@@ -18,6 +18,8 @@ sudo pip install whisper
 sudo pip install graphite-web
 sudo pip install psycopg2
 
+sudo timedatectl set-timezone America/Chicago
+
 cp ${PG_SCRIPT} vars.sh ${TMPDIR}
 chmod a+x /tmp/vars.sh /tmp/${PG_SCRIPT}
 sudo su postgres -c "/bin/bash /tmp/${PG_SCRIPT}"
