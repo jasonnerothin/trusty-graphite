@@ -27,10 +27,14 @@ sudo python manage.py syncdb
 sudo /opt/graphite/bin/carbon-cache.py start
 
 # configure apache to load the wsgi application
-cd /etc/apache2/sites-available/
+cd ${APACHE_CONF_DIR}sites-available/
 sudo cp /opt/graphite/examples/example-graphite-vhost.conf graphite-vhost.conf
 
-cd /etc/apache2/sites-enabled/
+sudo cat ${APACHE_CONF_DIR}${APACHE_CONF_FILE} > ${TMPDIR}${APACHE_CONF_FILE}
+sudo echo "ServerName vagrant-ubuntu-trusty-64" >> ${TMPDIR}${APACHE_CONF_FILE}
+sudo cp -f ${TMPDIR}${APACHE_CONF_FILE} ${APACHE_CONF_DIR}${APACHE_CONF_FILE}
+
+cd ${APACHE_CONF_DIR}sites-enabled/
 sudo rm -f 000-default.conf ${VHOST_FILE}
 sudo ln -s ../sites-available/graphite-vhost.conf ${VHOST_FILE}
 sudo mkdir /var/run/apache2/wsgi
